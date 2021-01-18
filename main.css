@@ -1,0 +1,41 @@
+.chess-board { 
+    
+    border-spacing: 0;
+    border-collapse: collapse;
+
+}
+table {
+    border: 1px solid #595959;
+}
+.chess-board th { padding: .5em; }
+.chess-board td { border: 1px solid; width: 2em; height: 2em; }
+.chess-board .dark { background: #000; }
+.Button-wrapper {position: relative;
+    padding-top: 20px;
+padding-left: 20px;}
+.Button:hover {box-shadow: 0 8px 65px -5px #ff0000;}
+.Button {
+    letter-spacing: 2px;
+    font-size: 22px;
+    line-height: 68px;
+    text-transform: uppercase;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    min-width: 200px;
+    padding: 0 24px;
+    box-shadow: 0 10px 60px -10px #070657;
+    cursor: pointer;
+    transform: perspective(250px) scale3d(1,1,1);
+    transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+    outline: none;
+}
+
+.doska {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tbBut {
+    height: 17px;
+}
