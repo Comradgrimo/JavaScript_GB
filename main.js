@@ -37,7 +37,7 @@ function createtable() {
         }
     }
 }
-
+// Допустим товары приходят нам в таком виде -
 let product1 = {
     id: 1,
     name: "Кочерга",
@@ -52,9 +52,11 @@ let product2 = {
     skidka: 4,
     kol: 1
 }
+
+// Собираем корзину(можно написать функцию )
 let product = [product1, product2]
 
-
+// КОРЗИНА
 function showBusket() {
     let listname = ['id', 'Название', 'Цена', 'Скидка', 'Количество']
     var bs = document.getElementById("busket");
@@ -69,9 +71,6 @@ function showBusket() {
         tr.append(th)
     }
 
-    //var tr1 = document.createElement('tr')
-    //tb.append(tr1)
-
     let qq = Object.values(product1)
     for (let i = 0; i < product.length; i++) {
         var tr2 = document.createElement('tr');
@@ -81,70 +80,64 @@ function showBusket() {
             td.innerHTML = Object.values(product[i])[j]
             tr2.append(td)
         }
+        // Ниже можно сделать функцией или циклом!! (мб доделать)
+        
+        //Добавление кнопки для +
         var p = document.createElement("td")
         tr2.append(p)
+        var but = document.createElement("button")
+        but.setAttribute("class", "tbBut")
+        but.setAttribute("onclick", `pluscol(${i})`)
+        but.setAttribute("type", "submit()")
+        but.innerHTML = "+"
+        p.append(but)
+        // Добавление кнопки для -
+        var p = document.createElement("td")
+        tr2.append(p)
+        var but = document.createElement("button")
+        but.setAttribute("class", "tbBut")
+        but.setAttribute("onclick", `minuscol(${i})`)
+        but.setAttribute("type", "submit()")
+        but.innerHTML = "-"
+        p.append(but)
+        //Добавление кнопки для Корзины
+        var p3 = document.createElement("td")
+        tr2.append(p3)
         var but = document.createElement("button")
         but.setAttribute("class", "tbBut")
         but.setAttribute("onclick", `addtobasket(${i})`)
         but.setAttribute("type", "submit()")
         but.innerHTML = "Добавить в корзину"
-        p.append(but)
+        p3.append(but)
+
+
+
     }
 }
 
+var cost = 0
 var qqr = 0
 function addtobasket(foo) {
     qqr = qqr + product[foo].kol
-    console.log("Товаров в корзине - " + qqr)
-    return qqr
+    cost = cost + product[foo].kol* (product[foo].price - (product[foo].price *product[foo].skidka / 100))
+    var lb = document.getElementById("lb")
+    lb.innerHTML = "Товаров в корзине - " + qqr + " на общую сумму - " + cost
 }
-/*
-// ЗАДАНИЕ 2
-//Корзина сначала пустая
-let busket = []
-//Допустим товары приходят в таком виде
-let product1 = {
-    id: 1,
-    name: "Кочерга",
-    price: 30,
-    skidka: 3
-}
-let product2 = {
-    id: 2,
-    name: "Булка",
-    price: 15,
-    skidka: 4
-}
-//Функция расчета скидки
-function getfullprice(foo) {
-    return { id: foo.id, name: foo.name, price: foo.price - (foo.price * foo.skidka / 100) }
-}
- 
-//функция добавления в корзины
-function addtobasket(foo) {
-    busket.push(getfullprice(foo))
-}
- 
-//добавляем в корзину наши  2 товара
-addtobasket(product1)
-addtobasket(product2)
- 
- 
-//просматриваем корзину
-console.log(busket)
- 
- 
-function countBasketPrice(foo) {
-    let price = 0
-    for (i in foo) {
-        price += foo[i].price
+
+function minuscol(foo) {
+    if (product[foo].kol <= 0) {
+        product[foo].kol = 0
+        console.log("Количество товара не может быть меньше одного")
     }
-    return console.log('Всего товаров в корзине - ' + busket.length + ' на сумму ' + price + ' рублей');
+    else {product[foo].kol-=1}
+    var p = document.querySelector(`#busket > table > tr:nth-child(${foo +2}) >td:nth-child(5)`)
+    p.innerHTML = product[foo].kol
 }
- 
-countBasketPrice(busket)
-*/
 
-
+function pluscol(foo) {
+    product[foo].kol+=1
+    var p = document.querySelector(`#busket > table > tr:nth-child(${foo +2}) >td:nth-child(5)`)
+    p.innerHTML = product[foo].kol
+}
 
 $('.Button').tilt({ scale: 1.1, speed: 1000 })
