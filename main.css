@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#lq{
+    display: none;
+}
+table {
+    border: 1px solid #595959;
+
+}
+.table1 table{
+    width: 555px;
+    text-align: center;
+}
+.tbBut {
+    height: 17px;
+}
+
