@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<body>
+    <div class="main">
+        <div id="busket" class="busket"></div>
+        <div class="table1" id = 'table1'>
+        </div>
+        <p id = "lb">Корзина пуста</p>
+    </div>
+
+    <div class="b-popup" id="popup1">
+      <div class="b-popup-content">
+        <a href="javascript:PopUpHide()"><i class="far fa-times-circle"></i></a>
+        <form>
+            <p>Введите контактные данные</p>
+            <label for="fname">Имя</label><br>
+            <input type="text" id="fname" name="fname" placeholder = "Иван" value=""><br>
+            <label for="lname">Фамилия</label><br>
+            <input type="text" id="lname" name="lname" placeholder = "Иванов"value=""><br>
+            <label for="lname">Адресс</label><br>
+            <input type="text" id="addr" name="address" placeholder = "Москва улица Академика Королева 5"value=""><br>
+            <input type="text" id="cmnt" name="coment" placeholder = "Комментарий"value=""><br><br>
+            <input type="submit" value="Ок">
+            <button type="reset">Очистить</button>
+          </form>
+      </div>
+    </div>
+    <footer>
+        <script src="main.js"></script>
+    </footer>
+</body>
+
+</html>
